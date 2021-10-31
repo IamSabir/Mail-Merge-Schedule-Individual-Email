@@ -148,7 +148,9 @@ function sendMails(subjectLine, sheet = SpreadsheetApp.getActiveSheet()) {
       Logger.log("Body: " + msgObj.text);
       Logger.log("Sender: " + nameOfTheSender);
       emailStat.push("Delivered");
+      out.push(new Date());
       sheet.getRange("E" + (rowIdx+2)).setValue(emailStat);
+      sheet.getRange("F" + (rowIdx+2)).setValue(out).setNumberFormat("dd-MM-yyyy hh:mm");
 
 
     } else {
